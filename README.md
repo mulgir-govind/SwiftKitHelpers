@@ -1,6 +1,6 @@
 # SwiftKitHelpers
 
-Lightweight Swift extensions and helpers for iOS development. Distributed as a [CocoaPods](https://cocoapods.org) library.
+Lightweight Swift extensions and helpers for iOS development. Distributed as a [CocoaPods](https://cocoapods.org/pods/SwiftKitHelpers) library.
 
 ## Requirements
 
@@ -15,7 +15,7 @@ Lightweight Swift extensions and helpers for iOS development. Distributed as a [
 Add to your `Podfile`:
 
 ```ruby
-pod 'SwiftKitHelpers', '~> 0.1.0'
+pod 'SwiftKitHelpers', '~> 2.0.0'
 ```
 
 Then run:
@@ -60,21 +60,32 @@ let user: User? = UserDefaults.standard.codable(forKey: "currentUser")
 view.roundCorners(radius: 8)
 view.addSubviews(titleLabel, subtitleLabel)
 UIColor(hex: "#FF5733")
+
+// More
+"hello".capitalizedFirst
+Date().isToday
+(3.14159).rounded(toDecimalPlaces: 2)
+URL(string: "https://example.com?id=1")?.queryValue(for: "id")
+Data([0xDE, 0xAD]).hexString
 ```
 
 ## Helpers overview
 
 | Area | Highlights |
 |------|------------|
-| `String` | Trim, blank check, email/URL validation, base64 |
-| `Collection` | Safe subscript, chunking, uniquing |
+| `String` | Trim, blank check, email/URL validation, base64, `nilIfBlank`, `capitalizedFirst` |
+| `Collection` / `Array` | Safe access, chunking, uniquing, `removed(at:)`, `appending` |
+| `Dictionary` | Lazy default value with `value(for:default:)` |
 | `Optional` | Default values for common types |
-| `Date` | Start/end of day, adding components |
+| `Date` | Start/end of day, `isToday`, `days(to:)` |
 | `DateFormatter` | Shared short/medium/long presets |
+| `Data` | Hex encode/decode |
+| `URL` | Query read/write helpers |
+| `Double` / floats | Decimal rounding, `clamped(to:)` |
 | `Bundle` | App version and build number |
 | `UserDefaults` | Codable get/set |
 | `DispatchQueue` | Main/async helpers |
-| `UIView` | Corner radius, subviews, fade |
+| `UIView` | Corner radius, subviews, fade, animated hide |
 | `UIColor` | Hex initialization |
 
 ## License

@@ -18,6 +18,20 @@ public extension UIView {
         UIView.animate(withDuration: duration, animations: { self.alpha = alpha }, completion: completion)
     }
 
+    /// Shows or hides the view, optionally animating alpha.
+    func setHidden(_ hidden: Bool, animated: Bool = false) {
+        guard animated else {
+            isHidden = hidden
+            return
+        }
+        if hidden {
+            fade(to: 0) { _ in self.isHidden = true }
+        } else {
+            isHidden = false
+            fade(to: 1)
+        }
+    }
+
     /// Pins the receiver to all edges of `container` using Auto Layout.
     func pinToEdges(of container: UIView, insets: UIEdgeInsets = .zero) {
         translatesAutoresizingMaskIntoConstraints = false

@@ -36,4 +36,22 @@ public extension String {
         guard let data = Data(base64Encoded: self) else { return nil }
         return String(data: data, encoding: .utf8)
     }
+
+    /// `nil` when the string is blank after trimming; otherwise the trimmed value.
+    var nilIfBlank: String? {
+        let value = trimmed
+        return value.isEmpty ? nil : value
+    }
+
+    /// Uppercases only the first character; leaves the rest unchanged.
+    var capitalizedFirst: String {
+        guard let first = first else { return self }
+        return String(first).uppercased() + dropFirst()
+    }
+
+    /// Case-insensitive containment check against any of the given substrings.
+    func containsAny(_ substrings: String..., ignoreCase: Bool = true) -> Bool {
+        let options: String.CompareOptions = ignoreCase ? .caseInsensitive : []
+        return substrings.contains { range(of: $0, options: options) != nil }
+    }
 }

@@ -24,6 +24,23 @@ public extension Date {
     func isSameDay(as other: Date, calendar: Calendar = .current) -> Bool {
         calendar.isDate(self, inSameDayAs: other)
     }
+
+    /// `true` when the date is on the current calendar day.
+    var isToday: Bool {
+        Calendar.current.isDateInToday(self)
+    }
+
+    /// `true` when the date is strictly after the current instant.
+    var isInFuture: Bool {
+        self > Date()
+    }
+
+    /// Whole number of calendar days from this date to `other` (can be negative).
+    func days(to other: Date, calendar: Calendar = .current) -> Int {
+        let start = calendar.startOfDay(for: self)
+        let end = calendar.startOfDay(for: other)
+        return calendar.dateComponents([.day], from: start, to: end).day ?? 0
+    }
 }
 
 public extension DateFormatter {
