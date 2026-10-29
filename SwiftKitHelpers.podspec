@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SwiftKitHelpers'
-  s.version          = '0.1.0'
+  s.version          = '1.0.0'
   s.summary          = 'Lightweight Swift extensions and helpers for iOS apps.'
   s.description      = <<-DESC
     SwiftKitHelpers is a small collection of Foundation and UIKit utilities:
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
   s.homepage         = 'https://github.com/mulgir-govind/SwiftKitHelpers'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'mulgir-govind' => 'YOUR_EMAIL_HERE' }
+  s.author           = { 'mulgir-govind' => 'govind.mulgir.17@gmail.com' }
   s.source           = {
     :git => 'https://github.com/mulgir-govind/SwiftKitHelpers.git',
     :tag => s.version.to_s
